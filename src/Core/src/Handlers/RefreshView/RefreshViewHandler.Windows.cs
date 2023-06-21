@@ -43,6 +43,11 @@ namespace Microsoft.Maui.Handlers
 			base.DisconnectHandler(nativeView);
 		}
 
+		public static void MapVisualizationState(IRefreshViewHandler handler, IRefreshView refreshView)
+		{
+			return;
+		}
+
 		public static void MapIsRefreshing(IRefreshViewHandler handler, IRefreshView refreshView)
 			=> (handler as RefreshViewHandler)?.UpdateIsRefreshing();
 

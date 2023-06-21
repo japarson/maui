@@ -24,6 +24,17 @@ namespace Microsoft.Maui.Controls
 			_platformConfigurationRegistry = new Lazy<PlatformConfigurationRegistry<RefreshView>>(() => new PlatformConfigurationRegistry<RefreshView>(this));
 		}
 
+		/// <summary>Bindable property for <see cref="VisualizationState"/>.</summary>
+		public static readonly BindableProperty VisualizationStateProperty =
+			BindableProperty.Create(nameof(IsRefreshing), typeof(bool), typeof(RefreshView), false, BindingMode.TwoWay);
+
+		/// <include file="../../docs/Microsoft.Maui.Controls/RefreshView.xml" path="//Member[@MemberName='VisualizationState']/Docs/*" />
+		public RefreshVisualizationState VisualizationState
+		{
+			get { return (RefreshVisualizationState)GetValue(VisualizationStateProperty); }
+			set { SetValue(VisualizationStateProperty, value); }
+		}
+
 		/// <summary>Bindable property for <see cref="IsRefreshing"/>.</summary>
 		public static readonly BindableProperty IsRefreshingProperty =
 			BindableProperty.Create(nameof(IsRefreshing), typeof(bool), typeof(RefreshView), false, BindingMode.TwoWay, coerceValue: OnIsRefreshingPropertyCoerced, propertyChanged: OnIsRefreshingPropertyChanged);

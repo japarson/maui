@@ -14,6 +14,8 @@ Microsoft.Maui.ICommandMapper<TVirtualView, TViewHandler>.Add(string! key, Syste
 Microsoft.Maui.ICommandMapper<TVirtualView, TViewHandler>.Add(string! key, System.Action<TViewHandler, TVirtualView>! action) -> void
 Microsoft.Maui.Handlers.IImageSourcePartSetter
 Microsoft.Maui.Handlers.IImageSourcePartSetter.SetImageSource(Android.Graphics.Drawables.Drawable? obj) -> void
+Microsoft.Maui.IRefreshView.VisualizationState.get -> Microsoft.Maui.RefreshVisualizationState
+Microsoft.Maui.IRefreshView.VisualizationState.set -> void
 Microsoft.Maui.Layouts.FlexBasis.Equals(Microsoft.Maui.Layouts.FlexBasis other) -> bool
 Microsoft.Maui.Platform.ImageSourcePartLoader.ImageSourcePartLoader(Microsoft.Maui.Handlers.IImageSourcePartSetter! handler) -> void
 Microsoft.Maui.Platform.ShapeExtensions
@@ -26,6 +28,9 @@ Microsoft.Maui.PlatformContentViewGroup.PlatformContentViewGroup(nint javaRefere
 Microsoft.Maui.PlatformContentViewGroup.SetHasClip(bool hasClip) -> void
 Microsoft.Maui.PlatformContentViewGroup.ViewGroupDispatchDraw(Android.Graphics.Canvas? canvas) -> void
 Microsoft.Maui.PlatformWrapperView.SetHasShadow(bool hasShadow) -> void
+Microsoft.Maui.RefreshVisualizationState
+Microsoft.Maui.RefreshVisualizationState.Active = 1 -> Microsoft.Maui.RefreshVisualizationState
+Microsoft.Maui.RefreshVisualizationState.Idle = 0 -> Microsoft.Maui.RefreshVisualizationState
 Microsoft.Maui.SizeRequest.Equals(Microsoft.Maui.SizeRequest other) -> bool
 Microsoft.Maui.PlatformWrapperView
 Microsoft.Maui.PlatformWrapperView.PlatformWrapperView(Android.Content.Context? context) -> void
@@ -59,6 +64,7 @@ static Microsoft.Maui.FontSize.operator ==(Microsoft.Maui.FontSize left, Microso
 static Microsoft.Maui.Graphics.PaintExtensions.ToDrawable(this Microsoft.Maui.Graphics.Paint? paint, Android.Content.Context? context) -> Android.Graphics.Drawables.Drawable?
 static Microsoft.Maui.GridLength.operator !=(Microsoft.Maui.GridLength left, Microsoft.Maui.GridLength right) -> bool
 static Microsoft.Maui.GridLength.operator ==(Microsoft.Maui.GridLength left, Microsoft.Maui.GridLength right) -> bool
+static Microsoft.Maui.Handlers.RefreshViewHandler.MapVisualizationState(Microsoft.Maui.Handlers.IRefreshViewHandler! handler, Microsoft.Maui.IRefreshView! refreshView) -> void
 static Microsoft.Maui.Handlers.SearchBarHandler.MapFocus(Microsoft.Maui.Handlers.ISearchBarHandler! handler, Microsoft.Maui.ISearchBar! searchBar, object? args) -> void
 static Microsoft.Maui.Handlers.StepperHandler.MapIsEnabled(Microsoft.Maui.Handlers.IStepperHandler! handler, Microsoft.Maui.IStepper! stepper) -> void
 static Microsoft.Maui.Layouts.FlexBasis.operator !=(Microsoft.Maui.Layouts.FlexBasis left, Microsoft.Maui.Layouts.FlexBasis right) -> bool

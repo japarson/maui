@@ -42,6 +42,10 @@ namespace Microsoft.Maui.Handlers
 				handler.PlatformView.SetColorSchemeColors(color.Value);
 		}
 
+		static void UpdateVisualizationState(IRefreshViewHandler handler)
+		{
+		}
+
 		static void UpdateIsRefreshing(IRefreshViewHandler handler) =>
 			handler.PlatformView.Refreshing = handler.VirtualView.IsRefreshing;
 
@@ -57,6 +61,9 @@ namespace Microsoft.Maui.Handlers
 
 		public static void MapBackground(IRefreshViewHandler handler, IView view)
 			=> UpdateBackground(handler);
+
+		public static void MapVisualizationState(IRefreshViewHandler handler, IRefreshView refreshView)
+			=> UpdateVisualizationState(handler);
 
 		public static void MapIsRefreshing(IRefreshViewHandler handler, IRefreshView refreshView)
 			=> UpdateIsRefreshing(handler);

@@ -8,6 +8,10 @@ namespace Microsoft.Maui.Handlers
 	{
 		protected override object CreatePlatformView() => throw new NotImplementedException();
 
+		public static void MapVisualizationState(IRefreshViewHandler handler, IRefreshView refreshView)
+		{
+		}
+
 		public static void MapIsRefreshing(IRefreshViewHandler handler, IRefreshView refreshView)
 		{
 		}

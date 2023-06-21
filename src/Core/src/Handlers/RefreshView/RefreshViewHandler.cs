@@ -16,6 +16,7 @@ namespace Microsoft.Maui.Handlers
 	{
 		public static IPropertyMapper<IRefreshView, IRefreshViewHandler> Mapper = new PropertyMapper<IRefreshView, IRefreshViewHandler>(ViewHandler.ViewMapper)
 		{
+			[nameof(IRefreshView.VisualizationState)] = MapVisualizationState,
 			[nameof(IRefreshView.IsRefreshing)] = MapIsRefreshing,
 			[nameof(IRefreshView.Content)] = MapContent,
 			[nameof(IRefreshView.RefreshColor)] = MapRefreshColor,

@@ -8,6 +8,11 @@ namespace Microsoft.Maui
 	public interface IRefreshView : IView
 	{
 		/// <summary>
+		/// Gets or sets the visualization state.
+		/// </summary>
+		RefreshVisualizationState VisualizationState { get; set; }
+
+		/// <summary>
 		/// Gets a bool that indicate if the View is loading or not.
 		/// </summary>
 		bool IsRefreshing { get; set; }
