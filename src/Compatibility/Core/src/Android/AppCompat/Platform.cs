@@ -784,6 +784,12 @@ namespace Microsoft.Maui.Controls.Compatibility.Platform.Android
 
 				NotReallyHandled = false;
 
+                // Check if the view is null or not alive before dispatching the touch event
+                if (this == null || !this.IsAlive())
+                {
+                    return false;
+                }
+
 				var result = base.DispatchTouchEvent(e);
 
 				if (result && NotReallyHandled)
