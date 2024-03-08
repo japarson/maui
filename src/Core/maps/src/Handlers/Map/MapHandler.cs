@@ -56,3 +56,7 @@ namespace Microsoft.Maui.Maps.Handlers
 		}
 	}
 }
+        protected virtual void UpdateVisibleRegion()
+        {
+            // Implement platform-specific logic to update the IMap's VisibleRegion property.
+        }
