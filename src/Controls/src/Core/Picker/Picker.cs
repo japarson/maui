@@ -232,8 +232,10 @@ namespace Microsoft.Maui.Controls
 
 		static object CoerceSelectedIndex(BindableObject bindable, object value)
 		{
-			var picker = (Picker)bindable;
-			return picker.Items == null ? -1 : ((int)value).Clamp(-1, picker.Items.Count - 1);
+		    var picker = (Picker)bindable;
+		    if (picker.Items == null || !picker.Items.Any())
+		        return value; // Do not coerce if Items are not set yet
+		    return ((int)value).Clamp(-1, picker.Items.Count - 1);
 		}
 
 		void OnItemDisplayBindingChanged(BindingBase oldValue, BindingBase newValue)
