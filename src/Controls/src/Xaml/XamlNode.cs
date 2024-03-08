@@ -172,6 +172,21 @@ namespace Microsoft.Maui.Controls.Xaml
 		public NameScopeRef NameScopeRef { get; set; }
 
 		public override void Accept(IXamlNodeVisitor visitor, INode parentNode)
+		Dictionary<XmlName, object> deferredProperties = new Dictionary<XmlName, object>();
+
+		public void DeferProperty(XmlName propertyName, object value)
+		{
+			deferredProperties[propertyName] = value;
+		}
+
+		public void ApplyDeferredProperties()
+		{
+			foreach (var kvp in deferredProperties)
+			{
+				Properties[kvp.Key] = (INode)kvp.Value;
+			}
+			deferredProperties.Clear();
+		}
 		{
 			if (visitor.VisitingMode == TreeVisitingMode.TopDown && !SkipVisitNode(visitor, parentNode))
 				visitor.Visit(this, parentNode);
@@ -210,6 +225,19 @@ namespace Microsoft.Maui.Controls.Xaml
 		{
 			var clone = new ElementNode(XmlType, NamespaceURI, NamespaceResolver, LineNumber, LinePosition)
 			{
+			if (!SkipChildren(visitor, this, parentNode))
+			{
+				// Check if ItemsSource or Items is being set and apply deferred SelectedIndex if any
+				if (Properties.ContainsKey(XmlName.xItemsSource) || Properties.ContainsKey(XmlName.xItems))
+				{
+					ApplyDeferredProperties();
+				}
+
+				foreach (var node in Properties.Values.ToArray())
+					node.Accept(visitor, this);
+				foreach (var node in CollectionItems.ToArray())
+					node.Accept(visitor, this);
+			}
 				IgnorablePrefixes = IgnorablePrefixes
 			};
 			foreach (var kvp in Properties)
