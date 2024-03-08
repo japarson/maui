@@ -20,6 +20,10 @@ namespace Microsoft.Maui.Controls
 
 			foreach (var page in _contentPages)
 			{
+				if (page == null || page.Handler == null)
+				{
+					continue;
+				}
 				if (page.HasNavigatedTo &&
 					page.HideSoftInputOnTapped &&
 					page.Handler is IPlatformViewHandler pvh &&
