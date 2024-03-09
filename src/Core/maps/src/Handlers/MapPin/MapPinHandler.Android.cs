@@ -25,3 +25,10 @@ namespace Microsoft.Maui.Maps.Handlers
 		}
 	}
 }
+using System.Collections.Generic;
+		private static Dictionary<IMapPin, Marker> _pinMarkers = new Dictionary<IMapPin, Marker>();
+		{
+			handler.PlatformView.SetSnippet(mapPin.Address);
+		}
+	}
+}
